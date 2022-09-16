@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gPe-3A-bLs">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -581,6 +581,9 @@
                                     <action selector="refreshFrequencyChanged:" destination="SmK-7N-row" eventType="valueChanged" id="pjF-35-VJP"/>
                                 </connections>
                             </slider>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bEY-gl-eFw">
+                                <rect key="frame" x="0.0" y="391" width="414" height="216"/>
+                            </pickerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7Vg-wz-nH8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -591,14 +594,17 @@
                             <constraint firstItem="5bt-qW-pAF" firstAttribute="leading" secondItem="7Vg-wz-nH8" secondAttribute="leading" constant="20" id="DuY-M4-5vi"/>
                             <constraint firstItem="ah6-iG-yNe" firstAttribute="centerY" secondItem="vUc-bz-WJ1" secondAttribute="centerY" id="IAN-r9-zmf"/>
                             <constraint firstItem="vUc-bz-WJ1" firstAttribute="top" secondItem="fe6-8w-v2B" secondAttribute="bottom" constant="30.5" id="TOp-J5-s7a"/>
+                            <constraint firstItem="bEY-gl-eFw" firstAttribute="top" secondItem="ymy-5b-aIW" secondAttribute="bottom" constant="21" id="TT3-L5-Y8i"/>
                             <constraint firstItem="7Vg-wz-nH8" firstAttribute="trailing" secondItem="ymy-5b-aIW" secondAttribute="trailing" constant="33" id="Vd5-65-5KN"/>
                             <constraint firstItem="PZs-FF-KXT" firstAttribute="top" secondItem="7Vg-wz-nH8" secondAttribute="top" constant="14" id="XQX-F6-h6b"/>
                             <constraint firstItem="fe6-8w-v2B" firstAttribute="centerY" secondItem="5bt-qW-pAF" secondAttribute="centerY" id="ZHX-5z-K4D"/>
                             <constraint firstItem="ymy-5b-aIW" firstAttribute="leading" secondItem="fe6-8w-v2B" secondAttribute="leading" id="dgS-Tb-yaf"/>
+                            <constraint firstItem="bEY-gl-eFw" firstAttribute="leading" secondItem="7Vg-wz-nH8" secondAttribute="leading" id="drl-2t-0Is"/>
                             <constraint firstItem="oLI-Xx-Doh" firstAttribute="top" secondItem="PZs-FF-KXT" secondAttribute="bottom" constant="46" id="ekc-SC-G85"/>
                             <constraint firstItem="7Vg-wz-nH8" firstAttribute="trailing" secondItem="ah6-iG-yNe" secondAttribute="trailing" constant="33" id="f9H-7P-UVw"/>
                             <constraint firstItem="7Vg-wz-nH8" firstAttribute="trailing" secondItem="oLI-Xx-Doh" secondAttribute="trailing" constant="33" id="fTZ-EM-2sf"/>
                             <constraint firstItem="O4g-fv-0rc" firstAttribute="top" secondItem="7Vg-wz-nH8" secondAttribute="top" constant="86" id="h3x-hO-JB8"/>
+                            <constraint firstItem="bEY-gl-eFw" firstAttribute="trailing" secondItem="7Vg-wz-nH8" secondAttribute="trailing" id="mC5-cZ-QwI"/>
                             <constraint firstItem="ah6-iG-yNe" firstAttribute="trailing" secondItem="fe6-8w-v2B" secondAttribute="trailing" id="mFw-QB-ZqH"/>
                             <constraint firstItem="hRe-2F-EAC" firstAttribute="leading" secondItem="7Vg-wz-nH8" secondAttribute="leading" constant="20" id="t6l-uk-nLd"/>
                             <constraint firstItem="O4g-fv-0rc" firstAttribute="leading" secondItem="7Vg-wz-nH8" secondAttribute="leading" constant="20" id="uoo-Zx-ReA"/>
@@ -610,6 +616,7 @@
                     <navigationItem key="navigationItem" id="82r-GP-fqQ"/>
                     <connections>
                         <outlet property="lblRefresh" destination="5bt-qW-pAF" id="E7Y-k6-XdU"/>
+                        <outlet property="picker" destination="bEY-gl-eFw" id="OX4-JY-C6z"/>
                         <outlet property="refreshFrequency" destination="fe6-8w-v2B" id="md3-4f-Dgo"/>
                         <outlet property="showCount" destination="ymy-5b-aIW" id="8LA-3k-VuO"/>
                         <outlet property="showCountLabel" destination="hRe-2F-EAC" id="ftc-92-ztP"/>

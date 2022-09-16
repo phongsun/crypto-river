@@ -6,7 +6,6 @@
 import UIKit
 
 class VCCryptoMain: UITableViewController {
-    var myTimer: Timer!
     @IBOutlet weak var wait: UIActivityIndicatorView!
     
     override func viewWillAppear(_ animated:Bool) {

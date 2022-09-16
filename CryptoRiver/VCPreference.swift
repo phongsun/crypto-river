@@ -3,14 +3,27 @@
 
 import UIKit
 
-class VCPreference: UIViewController {
+class VCPreference: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerData.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+            return pickerData[row]
+    }
+    
     lazy var cryptoDataModel: ModelCrypto = {
         return ModelCrypto.shared
     }()
     
     @IBOutlet weak var sortBy: UISegmentedControl!
     
-    
+    var pickerData: [String] = [String]()
+    @IBOutlet weak var picker: UIPickerView!
     @IBOutlet weak var refreshFrequency: UISlider!
     @IBOutlet weak var showOnlyRoi: UISwitch!
     
@@ -21,7 +34,10 @@ class VCPreference: UIViewController {
     @IBOutlet weak var lblRefresh: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        // Connect data:
+        self.picker.delegate = self
+        self.picker.dataSource = self
+        pickerData = ["Bitcoin", "Ethereum", "Dogecoin", "Stellar", "Komodo", "Weedcoin"]
         // Do any additional setup after loading the view.
         refreshFrequency.value =  Float(cryptoDataModel.displayPreference.refreshFrequency)
         showCount.value =  Double(cryptoDataModel.displayPreference.showCount)
@@ -44,7 +60,7 @@ class VCPreference: UIViewController {
         cryptoDataModel.displayPreference.refreshFrequency = Int(sender.value)
         lblRefresh.text = "update every \(cryptoDataModel.displayPreference.refreshFrequency) sec"
     }
-
+    
     
     @IBAction func roiFlagChanged(_ sender: UISwitch) {
         cryptoDataModel.displayPreference.showOnlyROIAvailable = sender.isOn
@@ -54,14 +70,16 @@ class VCPreference: UIViewController {
         cryptoDataModel.displayPreference.showCount = Int(sender.value)
         showCountLabel.text = "show top \(cryptoDataModel.displayPreference.showCount)"
     }
+    
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

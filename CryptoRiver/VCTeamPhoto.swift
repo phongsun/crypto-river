@@ -10,12 +10,12 @@ class VCTeamPhoto: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet weak var scrollView: UIScrollView!
     
-    var displayImageName = "team"
+    var displayImageName = "pen15"
     var imageView:UIImageView?
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        let iv = UIImageView.init(image: TeamPhoto.sharedInstance().getImageWithName("team"))
+        let iv = UIImageView.init(image: TeamPhoto.sharedInstance().getImageWithName("pen15"))
             self.scrollView.addSubview(iv)
         let size = iv.image!.size
             self.scrollView.contentSize = size
